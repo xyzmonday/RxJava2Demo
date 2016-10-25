@@ -18,6 +18,9 @@
 
         <activity android:name=".activity.Practice1Activity"/>
         <activity android:name=".activity.Practice2Activity"/>
+        <activity android:name=".activity.Practice3Activity"/>
+        <activity android:name=".activity.Practice4Activity"/>
+        <activity android:name=".activity.Practice5Activity"/>
     </application>
 
 </manifest>
