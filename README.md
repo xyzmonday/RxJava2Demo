@@ -30,5 +30,19 @@ Single的意思就是说订阅后只能够接收到一次(或者说只能够发�
 
 * practice10 : 运用2.x和Retrofit2.x实现文件下载;
 
+###小总结
+ * 通过该Demo我的主要体会是相比于RxJava1.x差异主要在于：
+ * 被观察者（或者说事件发送者）有Observable,Flowable，Observable不支持被压。；
 
+ * Observable.subscribe方法中传入的参数可以是Observer的实现类，Observer接口多出了onSubscribe方法，
+用于解除Observable和Observer的关系;
+
+ * Flowable.subscribe方法的传入参数可以是Subscriber的实现类Subscriber同样多出了一个onSubscribe方法,
+可调用cancel同样实现取消或者接触订阅关系，而且还可以设置请求的次数(request)；
+
+ * 不论是Observable还是Flowable，在subscribe后不再返回Subscription对象。
+如果采用Consumer，Action订阅Observable或者Flowable都可以返回Disposable对象（注意Disposable对象同样有Supscriptiong的作用）；
+如果使用subscribeWith方法(传入的对象有DisposableObserver,DisposableSubscriber,
+ResourceObserver,ResourceSubscriber)，可以返回Subscriber或者Disposable对象.
+ 
 ###运行结图片展示:
