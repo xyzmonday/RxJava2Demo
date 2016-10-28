@@ -1,0 +1,113 @@
+{
+  "error_code": 0,
+  "returnMsg": "查询成功!",
+  "data": {
+    "future": [
+      {
+        "date": "20140804",
+        "temperature": "28℃~36℃",
+        "weather": "晴转多云",
+        "weather_id": {
+          "fa": "00",
+          "fb": "01"
+        },
+        "week": "星期一",
+        "wind": "南风3-4级"
+      },
+      {
+        "date": "20140805",
+        "temperature": "28℃~36℃",
+        "weather": "晴转多云",
+        "weather_id": {
+          "fa": "00",
+          "fb": "01"
+        },
+        "week": "星期二",
+        "wind": "东南风3-4级"
+      },
+      {
+        "date": "20140806",
+        "temperature": "27℃~35℃",
+        "weather": "晴转多云",
+        "weather_id": {
+          "fa": "00",
+          "fb": "01"
+        },
+        "week": "星期三",
+        "wind": "东南风3-4级"
+      },
+      {
+        "date": "20140807",
+        "temperature": "27℃~34℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "week": "星期四",
+        "wind": "东南风3-4级"
+      },
+      {
+        "date": "20140808",
+        "temperature": "27℃~33℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "week": "星期五",
+        "wind": "东北风4-5级"
+      },
+      {
+        "date": "20140809",
+        "temperature": "26℃~33℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "week": "星期六",
+        "wind": "北风4-5级"
+      },
+      {
+        "date": "20140810",
+        "temperature": "26℃~33℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "week": "星期日",
+        "wind": "北风4-5级"
+      }
+    ],
+    "sk": {
+      "humidity": "4%",
+      "temp": "21",
+      "time": "14:25",
+      "wind_direction": "西风",
+      "wind_strength": "2级"
+    },
+    "today": {
+      "city": "天津",
+      "comfort_index": "",
+      "date_y": "2014年03月21日",
+      "dressing_advice": "建议着大衣、呢外套加毛衣、卫衣等服装。",
+      "dressing_index": "较冷",
+      "drying_index": "",
+      "exercise_index": "较适宜",
+      "temperature": "8℃~20℃",
+      "travel_index": "适宜",
+      "uv_index": "中等",
+      "wash_index": "较适宜",
+      "weather": "晴转霾",
+      "weather_id": {
+        "fa": "00",
+        "fb": "53"
+      },
+      "week": "星期五",
+      "wind": "西南风微风"
+    }
+  },
+  "returnCode": "200"
+}

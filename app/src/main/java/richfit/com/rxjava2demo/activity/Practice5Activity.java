@@ -1,7 +1,7 @@
 package richfit.com.rxjava2demo.activity;
 
 import io.reactivex.Flowable;
-import richfit.com.rxjava2demo.rxbus.Transformer;
+import richfit.com.rxjava2demo.rxbus.TransformerHelper;
 
 /**
  * Created by monday on 2016/10/25.
@@ -36,9 +36,9 @@ public class Practice5Activity extends BasePracticeActivity {
         Flowable.just(1)
                 .doOnNext(integer -> mTvReceiver.setText(mTvReceiver.getText() + "\n" +
                         "doOnNext运行的线程 = " + Thread.currentThread().getName()))
-                .compose(Transformer.io2main())
+                .compose(TransformerHelper.io2main())
                 .subscribe(integer ->  mTvReceiver.setText(mTvReceiver.getText() + "\n" +
-                        "doOnNext运行的线程 = " + Thread.currentThread().getName()));
+                        "onNext运行的线程 = " + Thread.currentThread().getName()));
     }
 
 }

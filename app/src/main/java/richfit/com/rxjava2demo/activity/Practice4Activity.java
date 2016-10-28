@@ -6,7 +6,7 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.ResourceSubscriber;
-import richfit.com.rxjava2demo.rxbus.Transformer;
+import richfit.com.rxjava2demo.rxbus.TransformerHelper;
 
 /**
  * Created by monday on 2016/10/25.
@@ -28,7 +28,7 @@ public class Practice4Activity extends BasePracticeActivity {
     protected void initEvent() {
         Flowable.just(1)
                 .delay(500, TimeUnit.MILLISECONDS)
-                .compose(Transformer.io2main())
+                .compose(TransformerHelper.io2main())
                 .subscribe(a -> dispose());
     }
 

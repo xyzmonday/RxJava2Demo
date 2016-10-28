@@ -13,7 +13,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import richfit.com.rxjava2demo.rxbus.Transformer;
+import richfit.com.rxjava2demo.rxbus.TransformerHelper;
 
 /**
  * Created by monday on 2016/10/25.
@@ -62,7 +62,7 @@ public class Practice3Activity extends BasePracticeActivity {
                     public void run() throws Exception {
                         Log.d("yff", "complete");
                         Flowable.just(1)
-                                .compose(Transformer.io2main())
+                                .compose(TransformerHelper.io2main())
                                 .subscribe(a->mTvReceiver.setText(
                                         mTvReceiver.getText() + "\n"
                                         + mReceivedList
