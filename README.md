@@ -54,7 +54,7 @@ ResourceObserver,ResourceSubscriber)，可以返回Subscriber或者Disposable对
  
 ###运行结图片展示:<br/>
 
-![](https://github.com/xyzmonday/RxJava2Demo/blob/8419ea72fa67e62d1ac94405d668a8fc4a36af8f/sceenshot/pratice1_scrennshot.png) 
+![](https://github.com/xyzmonday/RxJava2Demo/blob/8419ea72fa67e62d1ac94405d668a8fc4a36af8f/sceenshot/pratice1_scrennshot1.png) 
 
 ![](https://github.com/xyzmonday/RxJava2Demo/blob/22bd8836792c25c5fbf5be43cadd186c61c8ac50/sceenshot/GIF.gif) 
 
