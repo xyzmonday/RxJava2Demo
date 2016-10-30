@@ -10,6 +10,7 @@ import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.processors.PublishProcessor;
+import richfit.com.rxjava2demo.activity.Practice13Activity;
 
 public class RotationPersist2WorkerFragment
         extends Fragment {
@@ -44,7 +45,7 @@ public class RotationPersist2WorkerFragment
 
        Flowable.interval(1, TimeUnit.SECONDS)
                 .map(Long::intValue)
-                .take(20)
+                .take(Practice13Activity.MAX_PROGRESS)
                 .subscribeWith(intStream);
         mCompositeDisposable.add(intStream.publish().connect());
     }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -104,7 +103,6 @@ public class Practice13Activity extends AppCompatActivity implements RotationPer
         return new ResourceObserver<Integer>() {
             @Override
             public void onComplete() {
-                Log.d("yff", "onComplete");
                 setBusy(false);
                 mPbProgressBar.setProgress(0);
             }
