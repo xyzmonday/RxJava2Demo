@@ -26,9 +26,16 @@ Single的意思就是说订阅后只能够接收到一次(或者说只能够发�
 
 * practice8 : 练习使用Subject,以及suject使用的注意事项；
 
-* practice9 : 综合运用2.x封装多种RxBus;
+* practice9 : 综合运用2.x封装SimpleRxBus;
 
-* practice10 : 运用2.x和Retrofit2.x实现文件下载;
+* practice10 : 综合运用2.x封装RxManager;
+
+* pratice11 : 2.x和 Retrofit2.x封装一般的Http请求;
+
+* practice12 : 2.x和 Retrofit2.x实现文件下载;
+
+* ptactice13 : 2.x实现屏幕旋转场景中异步任务恢复； 
+
 
 ###小总结
  * 通过该Demo我的主要体会是相比于RxJava1.x差异主要在于：
