@@ -46,3 +46,5 @@ Single的意思就是说订阅后只能够接收到一次(或者说只能够发�
 ResourceObserver,ResourceSubscriber)，可以返回Subscriber或者Disposable对象.
  
 ###运行结图片展示:
+* practice1运行的结果：
+![practice1结果](https://github.com/xyzmonday/RxJava2Demo/blob/8419ea72fa67e62d1ac94405d668a8fc4a36af8f/sceenshot/pratice1_scrennshot.png) 
