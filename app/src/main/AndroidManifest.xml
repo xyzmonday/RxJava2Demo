@@ -43,6 +43,8 @@
         <activity android:name=".activity.Practice9Activity"/>
         <activity android:name=".activity.Practice10Activity"/>
         <activity android:name=".activity.Practice11Activity"/>
+        <activity android:name=".activity.Practice12Activity"/>
+        <activity android:name=".activity.Practice13Activity"/>
     </application>
 
 </manifest>

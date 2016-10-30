@@ -8,7 +8,12 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import io.reactivex.Flowable;
+import io.reactivex.flowables.ConnectableFlowable;
 import io.reactivex.processors.PublishProcessor;
+
+import static richfit.com.rxjava2demo.rxbus.RxManager.BACKPRESSURE_STRATEGY_BUFFER;
+import static richfit.com.rxjava2demo.rxbus.RxManager.BACKPRESSURE_STRATEGY_DROP;
+import static richfit.com.rxjava2demo.rxbus.RxManager.BACKPRESSURE_STRATEGY_LAST;
 
 
 /**
@@ -16,6 +21,7 @@ import io.reactivex.processors.PublishProcessor;
  * 相当于Broadcast的action。
  */
 public class RxBus {
+
 
     public static RxBus instance;
 
@@ -47,10 +53,11 @@ public class RxBus {
         }
         /*生成事件*/
         PublishProcessor<T> subject;
-        //这里采用PublishSubject，该主题的特点是当有新的订阅者时立即将事件发射出去。
+        //这里采用PublishProcessor，该主题的特点是当有新的订阅者时立即将事件发射出去。
         subjects.add(subject = PublishProcessor.create());
         return subject;
     }
+
 
     public <T> Flowable<T> register(@NonNull Object tag, @NonNull Class<T> clazz) {
         /*获取tag对应注册的事件集合*/
@@ -61,9 +68,38 @@ public class RxBus {
         }
         /*生成事件*/
         PublishProcessor<T> subject;
-        //这里采用PublishSubject，该主题的特点是当有新的订阅者时立即将事件发射出去。
+        //这里采用PublishProcessor，该主题的特点是当有新的订阅者时立即将事件发射出去。
         subjects.add(subject = PublishProcessor.create());
         return subject.ofType(clazz);
+    }
+
+    public <T> ConnectableFlowable<T> register(@NonNull Object tag,int backPressureStrategy) {
+        /*获取tag对应注册的事件集合*/
+        ArrayList<PublishProcessor> subjects = subjectsMap.get(tag);
+        if (subjects == null) {
+            subjects = new ArrayList<>();
+            subjectsMap.put(tag, subjects);
+        }
+        /*生成事件*/
+        PublishProcessor<T> subject;
+        ///这里采用PublishProcessor，该主题的特点是当有新的订阅者时立即将事件发射出去。
+        subject = PublishProcessor.create();
+        subjects.add(subject);
+        switch (backPressureStrategy) {
+            case BACKPRESSURE_STRATEGY_BUFFER:
+                subject.onBackpressureBuffer();
+                break;
+            case BACKPRESSURE_STRATEGY_DROP:
+                subject.onBackpressureDrop();
+                break;
+            case BACKPRESSURE_STRATEGY_LAST:
+                subject.onBackpressureLatest();
+                break;
+            default:
+                subject.onBackpressureBuffer();
+                break;
+        }
+        return subject.publish();
     }
     /**
      * 反注册tag的事件集合

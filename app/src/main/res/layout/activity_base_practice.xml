@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="发送的信号:"
+
             android:textColor="#000"
             android:textSize="20sp" />
 
@@ -27,5 +28,23 @@
             android:textColor="#000"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/tv_progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="空闲"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:visibility="invisible" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:indeterminate="false"
+            android:visibility="invisible" />
     </LinearLayout>
 </ScrollView>

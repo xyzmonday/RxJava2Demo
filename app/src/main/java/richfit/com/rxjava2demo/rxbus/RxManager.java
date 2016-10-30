@@ -3,6 +3,7 @@ package richfit.com.rxjava2demo.rxbus;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -13,6 +14,11 @@ import io.reactivex.functions.Consumer;
  */
 
 public class RxManager {
+
+    public static final int BACKPRESSURE_STRATEGY_BUFFER = 0;
+    public static final int BACKPRESSURE_STRATEGY_DROP = 1;
+    public static final int BACKPRESSURE_STRATEGY_LAST = 2;
+
 
     private static RxManager instance;
 
@@ -64,6 +70,29 @@ public class RxManager {
                 });
     }
 
+    public <T> void register(Object tag, Consumer<T> action1, int backPressureStrategy) {
+        Flowable<T> flowable = mRxBus.register(tag);
+        mFlowables.put(tag, flowable);
+        Flowable<T> tmp  = null;
+        switch (backPressureStrategy) {
+            case BACKPRESSURE_STRATEGY_BUFFER:
+                tmp = flowable.onBackpressureBuffer();
+                break;
+            case BACKPRESSURE_STRATEGY_DROP:
+                tmp =  flowable.onBackpressureDrop();
+                break;
+            case BACKPRESSURE_STRATEGY_LAST:
+                tmp = flowable.onBackpressureLatest();
+                break;
+            default:
+                tmp =  flowable.onBackpressureBuffer();
+                break;
+        }
+        tmp.observeOn(AndroidSchedulers.mainThread())
+                .subscribe(action1, throwable -> {
+                });
+    }
+
     /**
      * 取消注册在所有RxBus的订阅者，以及Observables 和 Subscribers的订阅者
      */
@@ -82,6 +111,10 @@ public class RxManager {
      */
     public void post(Object tag, Object event) {
         mRxBus.post(tag, event);
+    }
+
+    public void post(Flowable<Object> flowable, BackpressureStrategy backpressureStrategy) {
+
     }
 
     public void post(Object event) {

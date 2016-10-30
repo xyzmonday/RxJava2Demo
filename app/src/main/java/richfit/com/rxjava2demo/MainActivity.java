@@ -6,6 +6,8 @@ import android.view.View;
 import butterknife.OnClick;
 import richfit.com.rxjava2demo.activity.Practice10Activity;
 import richfit.com.rxjava2demo.activity.Practice11Activity;
+import richfit.com.rxjava2demo.activity.Practice12Activity;
+import richfit.com.rxjava2demo.activity.Practice13Activity;
 import richfit.com.rxjava2demo.activity.Practice1Activity;
 import richfit.com.rxjava2demo.activity.Practice2Activity;
 import richfit.com.rxjava2demo.activity.Practice3Activity;
@@ -37,7 +39,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,
             R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9,
-            R.id.btn10,R.id.btn11})
+            R.id.btn10,R.id.btn11,R.id.btn12,R.id.btn13})
     public void onClick(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -73,6 +75,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn11:
                 intent = new Intent(this,Practice11Activity.class);
+                break;
+            case R.id.btn12:
+                intent = new Intent(this,Practice12Activity.class);
+                break;
+            case R.id.btn13:
+                intent = new Intent(this,Practice13Activity.class);
                 break;
         }
 

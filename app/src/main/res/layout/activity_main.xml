@@ -84,6 +84,19 @@
             android:id="@+id/btn11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="practice11 (2.x和Retrofit2.x实现文件下载)" />
+            android:text="practice11 (2.x和Retrofit2.x封装一般http请求)" />
+
+        <Button
+            android:id="@+id/btn12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="practice12 (2.x和Retrofit2.x实现文件下载)" />
+
+        <Button
+            android:id="@+id/btn13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="practice13 (2.x实现屏幕旋转恢复异步任务)" />
+
     </LinearLayout>
 </ScrollView>

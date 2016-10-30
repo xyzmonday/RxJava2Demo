@@ -1,5 +1,6 @@
 package richfit.com.rxjava2demo.activity;
 
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -17,6 +18,12 @@ public abstract class BasePracticeActivity extends BaseActivity{
 
     @BindView(R.id.tv_receiver)
     protected TextView mTvReceiver;
+
+    @BindView(R.id.progress_bar)
+    ProgressBar mProgress;
+
+    @BindView(R.id.tv_progress_text)
+    TextView mTvProgress;
 
     @Override
     protected int getLayoutId() {

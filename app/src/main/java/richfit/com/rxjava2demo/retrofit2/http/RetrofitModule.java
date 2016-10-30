@@ -75,7 +75,7 @@ public class RetrofitModule {
     /**
      * @return 下载文件
      */
-    public static IRetrofitDownloadApi getDownloadApi(final ProgressResponseBody.ProgressListener progressListener) {
+    public static IRetrofitDownloadApi getDownloadApi() {
         //打印拦截器
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -87,7 +87,7 @@ public class RetrofitModule {
                     public Response intercept(Chain chain) throws IOException {
                         Response originalResponse = chain.proceed(chain.request());
                         return originalResponse.newBuilder()
-                                .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                                .body(new ProgressResponseBody(originalResponse.body()))
                                 .build();
                     }
                 })
